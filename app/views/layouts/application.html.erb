@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Twif</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="title"><%= link_to "Twif!", new_path %></div>
+<div>login</div>
+<div>My Twiffs</div>
+<div>Top Twiffs</div>
+<div class="wrapper">
+<%= yield %>
+</div>
+</body>
+</html>
