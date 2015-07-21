@@ -24,8 +24,20 @@ class Tweet < ActiveRecord::Base
 		@tweet = dom.xpath("//*[@id='bd']/div[2]/div[1]/div[2]/div[2]/div").text
 		@tweeter = dom.xpath("//*[@id='bd']/div[2]/div[1]/div[2]/div[1]/span/span").text
 
+
+
 		return [@tweet, @tweeter]
 	end
+
+
+
+	# def self.indico
+	# 	configIndico
+	# 	@tags = Indico.text_tags(@tweet, @config)
+	# 	@gif_tags =largest_hash(@tags)
+	# 	p @gif_tags
+	# 	puts '******' * 50
+	# end
 
 
 	def self.configTweet
