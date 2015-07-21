@@ -1,0 +1,41 @@
+// Place all the styles related to the twif controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body{
+  color: #2E2F30;
+  text-align: center;
+}
+
+.title{
+
+
+  height: 200px;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  background-color: #666666;
+  a{
+    color: #1e1d25;
+
+    font-size: 2em;
+  }
+  a:hover{
+    background-color: transparent;
+  }
+}
+
+.wrapper{
+  width: 70%;
+  height: 90%;
+  border: solid;
+  margin: 0 auto;
+}
+
+.content{
+  width: 50%;
+  margin: 0 auto;
+}
+
+
