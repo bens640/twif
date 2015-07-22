@@ -14,3 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+    $(".new-gif").click(function (e) {
+        e.preventDefault();
+        $.get('/twif/gifs', function(response) {
+            $('.gifs').html(response);
+        });
+    });
+
+    $(".funny-gif").click(function (e) {
+        e.preventDefault();
+        $.get('/twif/funny_gifs', function(response) {
+            $('.gifs').html(response);
+        });
+    });
+
+
+
+});

@@ -4,11 +4,13 @@
   <title>Twif</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="title"><%= link_to "Twif!", new_path %></div>
+<div class="title"><%= link_to "Twif!", twif_index_path %></div>
 <div class="login">login</div>
+<%= link_to "New Gif", twif_index_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
 <ul class="twif-link">
 <li>My Twiffs</li>
 <li>Top Twiffs</li>
@@ -16,5 +18,9 @@
 <div class="wrapper">
 <%= yield %>
 </div>
+<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue-deep_orange.min.css">
+<script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </body>
 </html>

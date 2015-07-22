@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
   get 'twif/index'
 	root 'twif#index'
+  get 'twif/gifs'
+  get 'twif/funny_gifs'
 
-  post '/new', to: 'twif#index'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

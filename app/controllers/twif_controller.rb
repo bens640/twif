@@ -1,22 +1,51 @@
 class TwifController < ApplicationController
+	before_action :setup, :set_session, :except => [:new_gif, :gif_tag]
+
+
+
 	def index
-		setup
+
 	end
+
 
 	def new
-		setup
-		redirect_to :back
+		redirect_to :index
 	end
 
+	def gif_tag
+	end
+
+	def new_gif
+
+	end
+
+	def gifs
+		render '_gifs', layout: false
+	end
+
+	def funny_gifs
+
+		@twif.gif = Gif.funny_gif
+		render '_funnygifs', layout: false
+	end
 
 
 	def setup
-		@twif = Twiff.new
-		@twiff = Tweet.twitter
-		@user = @twiff[1]
-		@tweet = @twiff[0]
+		@tweetgroup = Tweet.new
 
-		@twif.gif = Gif.giphy(@tweet)
+
+		@twif = Twiff.new
+		@tweetgroup = @tweetgroup.get_current_tweet
+		@user = @tweetgroup[1]
+		@tweet = @tweetgroup[0]
+		@twif.gif = Gif.new_gif
 
 	end
-end
+	private
+	def set_session
+		if session[:id] == 0
+			@tweetgroup.twitter
+		end
+	end
+	end
+

@@ -16,15 +16,19 @@ class Gif < ActiveRecord::Base
 		hash.max_by{|k,v| v}
 	end
 
-	def self.giphy(tweet)
-		indico(tweet)
-		response = HTTParty.get("http://api.giphy.com/v1/stickers/random?api_key=dc6zaTOxFJmzC&tag=#{@gif_tags[0]}")
-		puts '******' * 50
-		p @gif_tags
-		puts '******' * 50
-		p response
+	def self.funny_gif
+		response = HTTParty.get("http://api.giphy.com/v1/stickers/random?api_key=dc6zaTOxFJmzC&tag=funny")
 		@gif = response['data']['image_url']
 
+	end
+
+	def self.normal_gif
+
+	end
+
+	def self.new_gif
+		response = HTTParty.get("http://api.giphy.com/v1/stickers/random?api_key=dc6zaTOxFJmzC")
+		@new_gif = response['data']['image_url']
 	end
 
 end
