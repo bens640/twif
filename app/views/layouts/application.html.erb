@@ -8,16 +8,39 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="title"><%= link_to "Twif!", twif_index_path %></div>
-<div class="login">login</div>
-<%= link_to "New Gif", twif_index_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
-<ul class="twif-link">
-<li>My Twiffs</li>
-<li>Top Twiffs</li>
-  </ul>
-<div class="wrapper">
-<%= yield %>
+
+<div class="layout-transparent mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Twif!</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Login</a>
+        <%= link_to "New Gif", twif_index_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Twif!</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">My Twifs</a>
+      <a class="mdl-navigation__link" href="">Top Twifs</a>
+
+    </nav>
+  </div>
+
+
+
+
+  <div class="wrapper">
+    <%= yield %>
+  </div>
 </div>
+
+
 <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue-deep_orange.min.css">
 <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
