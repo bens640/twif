@@ -13,13 +13,21 @@
   <header class="mdl-layout__header mdl-layout__header--transparent">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">Twif!</span>
+      <!--<span class="mdl-layout-title">Twif!</span>-->
+      <%= link_to "Twif!", twif_index_path, class: "mdl-layout-title" %>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Login</a>
-        <%= link_to "New Gif", twif_index_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+        <%  if user_signed_in? %>
+        <ul>
+        <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "mdl-navigation__link"  %> </li>
+        <% else %>
+        <li> <%= link_to "Login", new_user_session_path, class: "mdl-navigation__link" %> </li>
+        <li>  <%= link_to "Register", new_user_registration_path, class: "mdl-navigation__link" %> </li>
+        </ul>
+            <% end %>
+        <%= link_to "New  Twiff", twif_index_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
       </nav>
     </div>
   </header>
@@ -36,6 +44,7 @@
 
 
   <div class="wrapper">
+
     <%= yield %>
   </div>
 </div>

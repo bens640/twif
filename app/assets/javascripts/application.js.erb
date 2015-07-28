@@ -17,20 +17,25 @@
 
 
 $(function() {
-    $(".new-gif").click(function (e) {
+    $("#new-gif").click(function (e) {
         e.preventDefault();
         $.get('/twif/gifs', function(response) {
             $('.gifs').html(response);
         });
     });
 
-    $(".funny-gif").click(function (e) {
+    $("#funny-gif").click(function (e) {
         e.preventDefault();
         $.get('/twif/funny_gifs', function(response) {
             $('.gifs').html(response);
         });
     });
 
-
+    (function(d, t) {
+        var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+        g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+        s.parentNode.insertBefore(g, s);
+    }(document, 'script'));
 
 });

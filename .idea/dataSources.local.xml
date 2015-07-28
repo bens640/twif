@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails twiff: development" uuid="cecb3761-c79d-4442-848d-524c3da6ef17">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails twiff: test" uuid="0dd86b65-101e-4ece-a4b0-219bdd0a81ea">
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>

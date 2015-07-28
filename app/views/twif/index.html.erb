@@ -4,15 +4,16 @@
 
 </div>
 
-<div id="tt2" class="icon material-icons">add_circle_outline</div>
-<div class="mdl-tooltip mdl-tooltip--large" for="tt2">
-  I hat you
-</div>
+
 
 <div class="gifs">
   <%= render 'gifs' %>
 </div>
+<br/>
+<%= link_to 'New Gif', twif_index_path, id: 'new-gif', class: "mdl-button mdl-js-button mdl-button--raised
+mdl-js-ripple-effect mdl-button--accent"  %>
+<%= link_to 'Funny Gif', twif_index_path, id: 'funny-gif', class: "mdl-button mdl-js-button mdl-button--raised
+mdl-js-ripple-effect mdl-button--accent"  %>
 
-<%= link_to 'New Gif', twif_index_path, class: 'new-gif', class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  %>
-<%= link_to 'Funny Gif', twif_index_path, class: 'funny-gif', class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  %>
+
 

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
+  devise_for :users, :controllers => { registrations: 'registrations' }
   get 'twif/index'
 	root 'twif#index'
   get 'twif/gifs'
   get 'twif/funny_gifs'
-
+  get 'twif/top'
 
 
 

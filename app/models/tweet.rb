@@ -1,42 +1,28 @@
 class Tweet < ActiveRecord::Base
 
 
-	def self.setup
+	def self.setup_keys
 		configTweet
 		configIndico
 
 	end
 
-	def twitter
-		setup
+	def self.twitter
+		setup_keys
 		@client.sample do |object|
 			if object.is_a?(Twitter::Tweet)
 				@tweetObject = object.text
 				if Indico.language(@tweetObject, @config)['English'] > 0.09
 					@tweetUser = object.user.id.to_s
-					if @tweet_array.size < 20
-						@tweet_array << @tweetUser
-						puts '******' * 50
-						p @tweet_array
-						puts '******' * 50
-					else
-						break
+					break
 					end
 
 				end
 			end
-		end
-
-	end
-
-def get_current_tweet
-
-	response = HTTParty.get("https://twitter.com/intent/user?user_id=#{@tweet_array}")
+	response = HTTParty.get("https://twitter.com/intent/user?user_id=#{@tweetUser}")
 	dom = Nokogiri::HTML(response.body)
 	@tweet = dom.xpath("//*[@id='bd']/div[2]/div[1]/div[2]/div[2]/div").text
 	@tweeter = dom.xpath("//*[@id='bd']/div[2]/div[1]/div[2]/div[1]/span/span").text
-
-
 
 	return [@tweet, @tweeter]
 end

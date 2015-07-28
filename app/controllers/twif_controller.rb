@@ -1,5 +1,5 @@
 class TwifController < ApplicationController
-	before_action :setup, :set_session, :except => [:new_gif, :gif_tag]
+	before_action :setup, :except => [:new_gif, :gif_tag, :save]
 
 
 
@@ -16,7 +16,11 @@ class TwifController < ApplicationController
 	end
 
 	def new_gif
+	end
 
+	def save
+		@twif.tweet = @twiff
+		@twif.save
 	end
 
 	def gifs
@@ -30,22 +34,25 @@ class TwifController < ApplicationController
 	end
 
 
+	def top_twiffs
+		5.times do |x|
+			top = "top" + x
+			top  = Gif.new_gif
+			@array << top
+		end
+	end
+
 	def setup
-		@tweetgroup = Tweet.new
 
 
 		@twif = Twiff.new
-		@tweetgroup = @tweetgroup.get_current_tweet
-		@user = @tweetgroup[1]
-		@tweet = @tweetgroup[0]
+		@twiff = Tweet.twitter
+		@user = @twiff[1]
+		@tweet = @twiff[0]
 		@twif.gif = Gif.new_gif
 
 	end
 	private
-	def set_session
-		if session[:id] == 0
-			@tweetgroup.twitter
-		end
-	end
+
 	end
 
